@@ -1,0 +1,33 @@
+<html>
+    </head> 
+        <script src="https://unpkg.com/bsv@1.5.4/bsv.min.js"></script>
+        <script src="https://www.moneybutton.com/moneybutton.js"></script>
+    </head>
+    <body><input type="text" id="txt" onkeyup="render()">
+    <div id="mb"></div>
+
+<script>
+    render = () => {
+        const div = document.getElementById('mb');
+        const text = document.getElementById('txt').value;
+
+        const script = bsv.Script.buildSafeDataOut(['run','\x05','Run ▸ Lessons','{"in":0,"ref":["f49322b741816a1c62a170833b222e3486ec7bd0cb839c4d4f194eba68a1e772_o1"],"out":["45fbdd23dd545a0c68afeb65803be7426791f5900b73a6dd6ffc53cc710a0d24"],"del":[],"cre":["19vftvbSiz5QbLPnQTTscRMP9LU5Vozt1H"],"exec":[{"op":"NEW","data":[{"$jig":0},["Spot",5]]}]}']).toASM();
+
+        // const script = bsv.Script.buildSafeDataOut(['run','\x05','Run ▸ Lessons','{"in":1,"ref":["f49322b741816a1c62a170833b222e3486ec7bd0cb839c4d4f194eba68a1e772_o2"],"out":["f69d2c95d005377112b9d79716c67701c5bdc878cc87ee30983a6225ccf60e46"],"del":[],"cre":[],"exec":[{"op":"CALL","data":[{"$jig":0},"upgrade",["Wrap",2000]]}]}']).toASM();
+
+        moneyButton.render(div, {
+            outputs: [{
+                script,
+                amount: '0',
+                currency: 'BSV'
+            },
+            {
+                to: "19vftvbSiz5QbLPnQTTscRMP9LU5Vozt1H",
+                amount: "0.00000546",
+                currency: "BSV"
+            }
+            ]
+        })
+    }
+</script></body></html>
+
